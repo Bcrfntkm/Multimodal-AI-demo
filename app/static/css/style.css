@@ -1,0 +1,132 @@
+/* Modern, fun CSS for Multimodal AI Demo */
+:root {
+    --primary: #6a11cb;
+    --secondary: #2575fc;
+    --accent: #ff6b6b;
+    --success: #4ade80;
+    --warning: #fbbf24;
+    --dark: #1e293b;
+    --light: #f8fafc;
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--gradient);
+    background-attachment: fixed;
+    color: var(--dark);
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    color: var(--dark);
+    margin-bottom: 10px;
+}
+
+.upload-area {
+    border: 3px dashed var(--secondary);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    margin: 20px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(37, 117, 252, 0.05);
+}
+
+.upload-area:hover {
+    border-color: var(--primary);
+    background: rgba(106, 17, 203, 0.1);
+    transform: scale(1.02);
+}
+
+button {
+    background: var(--gradient);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(106, 17, 203, 0.3);
+}
+
+button:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(106, 17, 203, 0.4);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.result {
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    display: none;
+}
+
+.error {
+    color: var(--accent);
+    background: rgba(255, 107, 107, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 4px solid var(--accent);
+}
+
+.success-message {
+    color: #16a34a;
+    background: rgba(74, 222, 128, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 4px solid var(--success);
+}
+
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+.bounce {
+    animation: bounce 2s infinite;
+}

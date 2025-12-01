@@ -1,0 +1,20 @@
+services:
+  app:
+    build: .
+    ports:
+      - "${PORT:-8000}:8000"
+    environment:
+      - DEVICE=${DEVICE:-cpu}
+      - PORT=${PORT:-8000}
+      - CACHE_DIR=/app/models
+    volumes:
+      - ./app:/app/app
+      - ./models:/app/models
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    command: uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}
